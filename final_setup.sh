@@ -26,7 +26,7 @@ ssh wazuh
 sudo yum install -y sshpass
 
 mkdir -p $HOME/.kube
-scp root@master:/etc/kubernetes/admin.conf /root/.kube/config
+sshpass -p 'admin' scp -o StrictHostKeyChecking=no   root@master:/etc/kubernetes/admin.conf /root/.kube/config
 chmod 600 $HOME/.kube/config
 
 kubectl apply -f calico.yaml
@@ -43,7 +43,7 @@ ssh elk
 sudo yum install -y sshpass
 
 mkdir -p $HOME/.kube
-scp root@master:/etc/kubernetes/admin.conf /root/.kube/config
+sshpass -p 'admin' scp -o StrictHostKeyChecking=no   root@master:/etc/kubernetes/admin.conf /root/.kube/config
 chmod 600 $HOME/.kube/config
 
 kubectl apply -f calico.yaml
@@ -60,7 +60,7 @@ ssh caldera
 sudo yum install -y sshpass
 
 mkdir -p $HOME/.kube
-scp root@master:/etc/kubernetes/admin.conf /root/.kube/config
+sshpass -p 'admin' scp -o StrictHostKeyChecking=no   root@master:/etc/kubernetes/admin.conf /root/.kube/config
 chmod 600 $HOME/.kube/config
 
 kubectl apply -f calico.yaml
